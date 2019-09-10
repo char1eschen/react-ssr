@@ -11,3 +11,5 @@ compiled
 .rpt2_cache
 docs
 examples/upload-file
+build
+public
