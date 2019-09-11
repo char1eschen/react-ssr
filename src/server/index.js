@@ -12,7 +12,6 @@ app.use(express.static('public'))
 
 app.use('/topstories', proxy('https://api.nytimes.com', {
   proxyReqPathResolver: function (req) {
-    console.log(req.url)
     return '/svc/topstories' + req.url
   }
 }));

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Header from "../../components/Header";
 import { connect } from "react-redux";
 import { getHomeList } from "./store/actions";
 
@@ -12,7 +11,6 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Header />
         {this.getList()}
         <button
           onClick={() => {
@@ -27,13 +25,13 @@ class Home extends Component {
 
   componentDidMount() {
     if (!this.props.list.length) {
-      this.props.getHomeList(false);
+      this.props.getHomeList();
     }
   }
 }
 
 Home.loadData = (store) => {
-  return store.dispatch(getHomeList(true))
+  return store.dispatch(getHomeList())
 };
 
 const mapStateToProps = state => ({
