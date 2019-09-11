@@ -10,7 +10,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.props.list);
     return (
       <div>
         <Header />
@@ -27,12 +26,14 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.props.getHomeList();
+    if (!this.props.list.length) {
+      this.props.getHomeList(false);
+    }
   }
 }
 
 Home.loadData = (store) => {
-  store.dispatch(getHomeList())
+  return store.dispatch(getHomeList(true))
 };
 
 const mapStateToProps = state => ({
