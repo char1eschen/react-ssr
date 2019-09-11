@@ -5,7 +5,7 @@ import { getHomeList } from "./store/actions";
 class Home extends Component {
   getList() {
     const { list } = this.props;
-    return list.map(item => <div key={item.created_date}>{item.title}</div>);
+    return list.map(item => <div key={item.id}>{item.title}</div>);
   }
 
   render() {
