@@ -10,9 +10,9 @@ import routes from "../Routes";
 const app = express();
 app.use(express.static('public'))
 
-app.use('/topstories', proxy('https://api.nytimes.com', {
+app.use('/api', proxy('http://47.95.113.63', {
   proxyReqPathResolver: function (req) {
-    return '/svc/topstories' + req.url
+    return '/ssr/api' + req.url
   }
 }));
 

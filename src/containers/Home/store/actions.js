@@ -8,9 +8,9 @@ const changList = list => ({
 export const getHomeList = () => {
   return (dispatch, getState, axiosInstance) => {
     return axiosInstance
-      .get('/topstories/v2/science.json?api-key=5fzWv2e5GUsQ4Y3woW024Nz94CXLtO4D')
+      .get('/api/news.json?secret=PP87ANTIPIRATE')
       .then(res => {
-        const list = res.data.results;
+        const list = res.data.data;
         dispatch(changList(list));
       });
   };
