@@ -9,7 +9,7 @@ import withStyle from '../../withStyle'
 class Translation extends Component {
   getList() {
     const { list } = this.props;
-    return list.map(item => <div classNmae={styles.item} key={item.id}>{item.title}</div>);
+    return list.map(item => <div className={styles.item} key={item.id}>{item.title}</div>);
   }
 
   render() {
