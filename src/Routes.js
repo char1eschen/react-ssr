@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import App from './App'
 import Home from "./containers/Home";
 import Translation from "./containers/Translation";
+import NotFound from './containers/NotFound'
 
 export default [{
   path: '/',
@@ -22,6 +23,9 @@ export default [{
       exact: true,
       loadData: Translation.loadData,
       key: 'translation'
+    },
+    {
+      component: NotFound
     }
   ]
 }]

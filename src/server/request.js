@@ -7,7 +7,9 @@ const createInstance = req =>
     headers: {
       cookie: req.get("cookie") || ""
     },
-    params: { secret: config.secret }
+    params: {
+      secret: config.secret
+    }
   });
 
 export default createInstance;

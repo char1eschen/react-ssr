@@ -3,7 +3,9 @@ import config from '../config'
 
 const instance = axios.create({
   baseURL: "/",
-  params: { secret: config.secret }
+  params: {
+    secret: config.secret
+  }
 });
 
 export default instance;

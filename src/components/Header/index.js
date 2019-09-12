@@ -2,23 +2,24 @@ import React, { Fragment, Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { actions } from "./store/";
+import styles from './style.css'
+import withStyle from '../../withStyle'
 
 class Header extends Component {
+
   render() {
     const { login, handleLogin, handleLogout } = this.props;
     return (
-      <div>
-        <Link to="/">Front Page</Link>
-        <br />
+      <div className={styles.container}>
+        <Link to="/" className={styles.item}>Front Page</Link>
         {login ? (
           <Fragment>
-            <Link to="/translation">Translation List</Link>
-            <br />
-            <div onClick={handleLogout}>Logout</div>
+            <Link to="/translation" className={styles.item}>Translation List</Link>
+            <div onClick={handleLogout} className={styles.item}>Logout</div>
           </Fragment>
         ) : (
-          <div onClick={handleLogin}>Login</div>
-        )}
+            <div onClick={handleLogin} className={styles.item}>Login</div>
+          )}
       </div>
     );
   }
@@ -39,4 +40,4 @@ const mapDispatch = dispatch => ({
 export default connect(
   mapState,
   mapDispatch
-)(Header);
+)(withStyle(Header, styles));
