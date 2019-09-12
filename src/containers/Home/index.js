@@ -1,8 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
+import { Helmet } from "react-helmet";
 import { getHomeList } from "./store/actions";
 import styles from './style.css'
 import withStyle from '../../withStyle'
+
 class Home extends Component {
 
   getList() {
@@ -12,9 +14,15 @@ class Home extends Component {
 
   render() {
     return (
-      <div className={styles.container}>
-        {this.getList()}
-      </div>
+      <Fragment>
+        <Helmet>
+          <title>This is the latest newslist.</title>
+          <meta name="description" content="This is the latest newslist." />
+        </Helmet>
+        <div className={styles.container}>
+          {this.getList()}
+        </div>
+      </Fragment>
     );
   }
 

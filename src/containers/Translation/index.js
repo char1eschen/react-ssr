@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
+import { Helmet } from "react-helmet";
 import { getTranslationList } from "./store/actions";
 import { Redirect } from "react-router-dom";
 import styles from './style.css'
@@ -12,7 +13,15 @@ class Translation extends Component {
   }
 
   render() {
-    return this.props.login ? <div className={styles.container}>{this.getList()}</div> : <Redirect to="/" />;
+    return this.props.login ?
+      <Fragment>
+        <Helmet>
+          <title>This is the latest tanslations list.</title>
+          <meta name="description" content="This is the latest tanslations list." />
+        </Helmet>
+        <div className={styles.container}>{this.getList()}</div>
+      </Fragment>
+      : <Redirect to="/" />;
   }
 
   componentDidMount() {
